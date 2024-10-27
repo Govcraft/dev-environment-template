@@ -21,9 +21,9 @@
         # extraPackages: list of packages - Additional packages to include
         # ide.type: enum - IDE preference ("vscode", "webstorm", "none") (default: "none")
         node-dev = {
-          enable = false;
-          nodeVersion = "20";
           # Example configuration:
+          # enable = true;
+          # nodeVersion = "20";
           # withTools = [ "typescript" "yarn" "pnpm" ];
           # extraPackages = [ ];
           # ide.type = "none";
@@ -37,8 +37,8 @@
         # extraPackages: list of packages - Additional packages to include
         # ide.type: enum - IDE preference ("rust-rover", "vscode", "none") (default: "none")
         rust-dev = {
-          enable = true;
-          rustVersion = "nightly";
+          # enable = true;
+          # rustVersion = "nightly";
           # Example configuration:
           # withTools = [ ];  # Will be prefixed with cargo-
           # extraPackages = [ ];
