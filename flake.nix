@@ -12,7 +12,7 @@
         1. Replace the description in flake.nix
         2. Adjust the dev-environments source if needed
         3. Configure your desired development environments using the documented options
-        4. Run `nix develop` to enter the development shell
+        4. The environment is created when you enter the dir or run `direnv reload`
       '';
     };
   };

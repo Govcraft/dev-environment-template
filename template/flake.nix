@@ -21,7 +21,7 @@
         # extraPackages: list of packages - Additional packages to include
         # ide.type: enum - IDE preference ("vscode", "webstorm", "none") (default: "none")
         node-dev = {
-          enable = true;
+          enable = false;
           nodeVersion = "20";
           # Example configuration:
           # withTools = [ "typescript" "yarn" "pnpm" ];
