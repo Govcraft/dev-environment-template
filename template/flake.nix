@@ -10,6 +10,7 @@
       imports = [
         inputs.dev-environments.flakeModules.rust
         inputs.dev-environments.flakeModules.node
+        inputs.dev-environments.flakeModules.typst
       ];
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
@@ -45,6 +46,13 @@
           # ide.type = "none";
         };
 
+        typst-dev = {
+          # Example configuration:
+          # enable = true;
+          # withTools = [ "typst-fmt" "typst-lsp" ];
+          # extraPackages = [ ];
+          # ide.type = "none";
+        };
         # Create the combined shell
         devShells.default = pkgs.mkShell {
           buildInputs = nixpkgs.lib.flatten (nixpkgs.lib.attrValues config.env-packages);
