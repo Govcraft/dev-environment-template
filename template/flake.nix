@@ -55,7 +55,7 @@
         };
         # Create the combined shell
         devShells.default = pkgs.mkShell {
-          buildInputs = nixpkgs.lib.flatten (nixpkgs.lib.attrValues config.env-packages);
+          buildInputs = nixpkgs.lib.flatten (nixpkgs.lib.attrValues config.env-packages ++ [ ]);
           shellHook = nixpkgs.lib.concatStringsSep "\n" (nixpkgs.lib.attrValues config.env-hooks);
         };
       };
