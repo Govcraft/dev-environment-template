@@ -30,21 +30,18 @@
           ...
         }:
         {
-          # Node.js Development Environment Options
-          # -------------------------------------
-          # enable: boolean - Enable/disable the Node environment
-          # nodeVersion: string - Version of Node.js to use (default: "20")
-          # withTools: list of strings - Global tools to include (default: ["typescript" "yarn" "pnpm"])
+
+          # Golang Development Environment Options
+          # ----------------------------------
+          # enable: boolean - Enable/disable the Golang environment
+          # goVersion: enum - Go toolchain version ("1.18", "1.19", "1.20", "1.21, "1.22"", "1.23") (default: "1.23")
+          # withTools: list of strings - Additional Go tools to include (e.g., "golint", "gopls")
           # extraPackages: list of packages - Additional packages to include
-          # ide.type: enum - IDE preference ("vscode", "webstorm", "none") (default: "none")
-          node-dev = {
-            # Example configuration:
-            enable =
-              if builtins.getEnv "ENABLE_NODE" == null then false else builtins.getEnv "ENABLE_NODE" == "true";
-            # nodeVersion = "20";
-            # withTools = [ "typescript" "yarn" "pnpm" ];
+          go-dev = {
+            # enable = true;
+            # goVersion = "1.23";
+            # withTools = [ "gopls" "golint" ];
             # extraPackages = [ ];
-            # ide.type = "none";
           };
 
           # Rust Development Environment Options
@@ -55,8 +52,7 @@
           # extraPackages: list of packages - Additional packages to include
           # ide.type: enum - IDE preference ("rust-rover", "vscode", "none") (default: "none")
           rust-dev = {
-            enable =
-              if builtins.getEnv "ENABLE_RUST" == null then false else builtins.getEnv "ENABLE_RUST" == "true";
+            # enable = true;
             # rustVersion = "nightly";
             # Example configuration:
             # withTools = [ ];  # Will be prefixed with cargo-
@@ -64,29 +60,29 @@
             # ide.type = "none";
           };
 
-          typst-dev = {
+          # Node.js Development Environment Options
+          # -------------------------------------
+          # enable: boolean - Enable/disable the Node environment
+          # nodeVersion: string - Version of Node.js to use (default: "20")
+          # withTools: list of strings - Global tools to include (default: ["typescript" "yarn" "pnpm"])
+          # extraPackages: list of packages - Additional packages to include
+          # ide.type: enum - IDE preference ("vscode", "webstorm", "none") (default: "none")
+          node-dev = {
             # Example configuration:
-            enable =
-              if builtins.getEnv "ENABLE_TYPST" == null then false else builtins.getEnv "ENABLE_TYPST" == "true";
-            # withTools = [ "typst-fmt" "typst-lsp" ];
+            # enable = true;
+            # nodeVersion = "20";
+            # withTools = [ "typescript" "yarn" "pnpm" ];
             # extraPackages = [ ];
             # ide.type = "none";
           };
 
-          # Golang Development Environment Options
-          # ----------------------------------
-          # enable: boolean - Enable/disable the Golang environment
-          # goVersion: enum - Go toolchain version ("1.18", "1.19", "1.20", "1.21, "1.22"", "1.23") (default: "1.23")
-          # withTools: list of strings - Additional Go tools to include (e.g., "golint", "gopls")
-          # extraPackages: list of packages - Additional packages to include
-          go-dev = {
-            enable =
-              if builtins.getEnv "ENABLE_GO" == null then false else builtins.getEnv "ENABLE_GO" == "true";
-            # goVersion = "1.23";
-            # withTools = [ "gopls" "golint" ];
+          typst-dev = {
+            # Example configuration:
+            # enable = true;
+            # withTools = [ "typst-fmt" "typst-lsp" ];
             # extraPackages = [ ];
+            # ide.type = "none";
           };
-
           # Create the combined shell
           devShells.default = pkgs.mkShell {
             buildInputs = nixpkgs.lib.flatten (nixpkgs.lib.attrValues config.env-packages ++ [ ]);
