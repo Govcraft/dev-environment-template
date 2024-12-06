@@ -7,11 +7,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1733501654,
-        "narHash": "sha256-w1TOF4vwPNPI0HrAERYymuFdD1lsrlqIL3Gg7V8xeK0=",
+        "lastModified": 1733502590,
+        "narHash": "sha256-pyloxBUtHC1UkaZ49h7qA96egIk7yW/gkMQnXfuBCc0=",
         "owner": "Govcraft",
         "repo": "dev-environments",
-        "rev": "27e594c240a772844c5ddcdb5083329cec881194",
+        "rev": "43f911dc2dfc7549419d43e11e4a6e330f52ee85",
         "type": "github"
       },
       "original": {
